@@ -8,7 +8,6 @@ const{
 
 const wallet = new Keypair() // wallet object created
 const publicKey = new PublicKey(wallet._keypair.publicKey)
-//const publicKey = wallet._keypair.publicKey // to see public key
 const secretKey = wallet._keypair.secretKey // to see secret key
 
 //console.log(publicKey) // to view public key
@@ -18,7 +17,7 @@ const getWalletBalance = async() =>{
     try{
         const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
         const walletBalance = await connection.getBalance(publicKey)
-        console.log(`Wallet Balance is ${walletBalance}`)
+        console.log(`Wallet Balance is ${walletBalance}`) // use Backtick here
     }catch(err){
         console.error(err)
     }
@@ -27,7 +26,6 @@ const airDropSol = async() =>{
     try{
         const connection = new Connection(clusterApiUrl('devnet'),'confirmed')
         const fromAirDropSignature = await connection.requestAirdrop(publicKey,2*LAMPORTS_PER_SOL)
-        const latestBlockHash = await connection.getLatestBlockhash();
         await connection.confirmTransaction(fromAirDropSignature)
     }catch(err){
         console.error(err)
