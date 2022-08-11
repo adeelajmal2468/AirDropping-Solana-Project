@@ -9,5 +9,5 @@ The Pre-requisites required to run this project are:
 
 First of all create a directory where you need to store this project.Then run npm install --save @solana/web3.js on cmd if you are using windows.
 
-To run this code use command: node index.js.
+To run this code use command: node index.js on cmd.
 
